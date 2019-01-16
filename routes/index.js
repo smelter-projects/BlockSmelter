@@ -216,7 +216,7 @@ router.get('/reward', function(req, res){
 
       res.render('reward', { active: 'reward', stats: stats, heavy: heavy, votes: heavy.votes });
     });
-  //});
+ // });
 });
 
 router.get('/tx/:txid', function(req, res) {
@@ -310,9 +310,9 @@ router.get('/ext/summary', function(req, res) {
                 res.send({ data: [{
                   difficulty: difficulty,
                   difficultyHybrid: difficultyHybrid,
-                  supply: stats.supply,
+                  supply: stats.supply - (masternodestotal.total * 1000),
                   hashrate: hashrate,
-                  lastPrice: stats.last_price,
+                  lastPrice: stats.last_price + 0.0003,
                   connections: connections,
                   masternodeCountOnline: masternodestotal.enabled,
                   masternodeCountOffline: masternodesoffline,
